@@ -447,6 +447,7 @@ module.exports = class huobipro extends Exchange {
         await this.loadMarkets ();
         let response = await this.privateGetOrderOrdersId (this.extend ({
             'id': id,
+            'states': 'pre-submitted,submitted,partial-filled,partial-canceled,filled,canceled',
         }, params));
         return this.parseOrder (response['data']);
     }
